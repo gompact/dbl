@@ -2,7 +2,21 @@ package dbl
 
 import "testing"
 
-func TestDoubleLinkedList_Add(t *testing.T) {
+func TestDoubleLinkedList_Prepend(t *testing.T) {
+	dbl := buildList()
+
+	dbl.Prepend(-1)
+
+	if dbl.Head.Value != -1 {
+		t.Errorf("expected list's head value to be -1, found %v", dbl.Head.Value)
+	}
+
+	if dbl.Head.next.Value != 0 {
+		t.Errorf("expected list's second item value to be 0, found %v", dbl.Head.next.Value)
+	}
+}
+
+func TestDoubleLinkedList_Append(t *testing.T) {
 	dbl := buildList()
 
 	if l := dbl.Length(); l != 3 {

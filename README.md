@@ -25,6 +25,9 @@ func main() {
     l.Append("third node")
     thirdNode := l.Pop()
 
+    // Add element to the beginning of the list
+    l.Prepend("zero node")
+
     // remove all elements in the list
     l.RemoveAll()
     

@@ -11,6 +11,24 @@ func NewList() *DBL {
 	return &DBL{}
 }
 
+// Prepends add a new node at the head (beginning) of the list
+func (l *DoubleLinkedList) Prepend(value interface{}) {
+	n := Node{
+		Value:    value,
+		previous: nil,
+		next:     nil,
+	}
+
+	if l.Head == nil {
+		// first node
+		l.Head = &n
+	} else {
+		l.Head.previous = &n
+		n.next = l.Head
+	}
+	l.Head = &n
+}
+
 func (l *DoubleLinkedList) Append(value interface{}) {
 	n := Node{
 		Value:    value,
