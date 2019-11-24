@@ -91,19 +91,19 @@ func (l *DoubleLinkedList) Pop() *Node {
 		l.Head = nil
 		l.Tail = nil
 		return n
-	}
-
-	n := l.Tail
-	if l.Tail != nil && l.Tail.previous == l.Head {
-		l.Tail = l.Head
+	} else if l.Tail != nil {
+		n := l.Tail
+		if l.Tail.previous == l.Head {
+			l.Tail = l.Head
+			l.Head.next = nil
+		} else {
+			l.Tail = l.Tail.previous
+			l.Tail.next = nil
+		}
 		return n
+	} else {
+		return nil
 	}
-
-	if l.Tail.previous != nil {
-		l.Tail.previous.next = nil
-	}
-	l.Tail = nil
-	return n
 }
 
 func (l *DoubleLinkedList) Length() int {
