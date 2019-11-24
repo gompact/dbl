@@ -1,5 +1,7 @@
 # DBL (Doubly Linked List)
 
+![](https://github.com/gompact/dbl/workflows/Build/badge.svg)
+
 dbl is a Doubly Linked List implementation in Go
 
 ## Usage
